@@ -1,0 +1,95 @@
+<section class="hero is-medium is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                YouTube Downloader
+            </h1>
+            <h2 class="subtitle">
+                Audio/video download tool
+            </h2>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <form>
+        <div class="field">
+            <input type="text" class="control input is-medium" name=url [(ngModel)]='url' 
+            placeholder="https://www.youtube.com/watch?v=XYZ" required>
+            
+        </div>
+        <div class="field">
+            <div class="level">
+                <div class="level-item has-text-centered">
+                    <button type="submit" class="button is-primary is-large" (click)=download()>Download</button>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+
+
+    <div class="columns">
+        <div class="column has-text-centered">
+            <div class="control">
+                <label class="radio">
+                    <input type="radio" name="answer" value="audioandvideo" [(ngModel)]="type">
+                    Audio and video
+                </label>
+                <br>
+                <label class="radio">
+                    <input type="radio" name="answer" value="video" [(ngModel)]="type">
+                    Video
+                </label>
+                <br>
+                <label class="radio">
+                    <input type="radio" name="answer" value="videoonly" [(ngModel)]="type">
+                    Video only
+                </label>
+                <br>
+                <label class="radio">
+                    <input type="radio" name="answer" value="audio" [(ngModel)]="type">
+                    Audio
+                </label>
+                <br>
+                <label class="radio">
+                    <input type="radio" name="answer" value="audioonly" [(ngModel)]="type">
+                    Audio only
+                </label>
+            </div>
+        </div>
+        <div class="column has-text-centered">
+            <div class="control">
+                <label class="radio">
+                    <input type="radio" name="quality" value="highest" [(ngModel)]="quality">
+                    Highest quality
+                </label>
+                <br>
+                <label class="radio">
+                    <input type="radio" name="quality" value="lowest" [(ngModel)]="quality">
+                    Lowest quality
+                </label>
+                <br>
+                <label class="radio">
+                    <input type="radio" name="quality" value="highestaudio" [(ngModel)]="quality">
+                    Highest audio quality
+                </label>
+                <br>
+                <label class="radio">
+                    <input type="radio" name="quality" value="lowestaudio" [(ngModel)]="quality">
+                    Lowest audio quality
+                </label>
+                <br>
+                <label class="radio">
+                    <input type="radio" name="quality" value="highestvideo" [(ngModel)]="quality">
+                    Highest video quality
+                </label>
+                <br>
+                <label class="radio">
+                    <input type="radio" name="quality" value="lowestvideo" [(ngModel)]="quality">
+                    Lowest video quality
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
