@@ -1,0 +1,20 @@
+version: '3.2'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: "unless-stopped"
+    networks:
+      - proxy
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.ytdlweb.rule=Host(`${DOMAIN}`)
+      - traefik.http.routers.ytdlweb.entrypoints=websecure
+      - traefik.http.routers.ytdlweb.tls=true
+      - traefik.http.routers.ytdlweb.tls.certresolver=le
+
+networks:
+  proxy:
+    external: true
