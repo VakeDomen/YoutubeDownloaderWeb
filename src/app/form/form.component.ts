@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from '../services/api.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-form',
@@ -25,16 +26,12 @@ export class FormComponent implements OnInit {
     if (!this.url) {
       this.toastr.error("Provide an url");
     } else {
-      this.api.download(this.url, this.type, this.quality).subscribe(res => {
-        console.log("resp")
-        const url = window.URL.createObjectURL(this.returnBlob(res));
-        window.open(url);
-      });
+      this.api.download(this.url, this.type, this.quality);
     }
   }
 
   returnBlob(res): Blob {
-    return new Blob([res], {type: 'video/mp4'});
+    return new Blob([res], { type: 'video/mp4' });
   }
 
 }
